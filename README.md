@@ -26,8 +26,8 @@ A web-based student management system built with Django. This application allows
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/darshansavani18/student-managemnet-system.git
-   cd student-managemnet-system
+   git clone https://github.com/darshansavani18/student-management-system.git
+   cd student-management-system
    ```
 
 2. **Set up a virtual environment** (optional but recommended):
