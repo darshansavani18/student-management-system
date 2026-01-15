@@ -16,6 +16,8 @@ class Teacher(models.Model):
         return self.full_name
 
 
+
+
 # =========================
 # Student Model
 # =========================
