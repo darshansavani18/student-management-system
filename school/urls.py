@@ -1,0 +1,16 @@
+from django.contrib import admin
+from django.urls import path,include
+from .views import add_student, login_view, dashboard,logout_view,add_teacher, view_students,delete_student,update_student
+
+urlpatterns = [
+    path("",login_view, name="login"),
+    path("login/", login_view, name="login"),
+    path("dashboard/", dashboard, name="dashboard"),
+    path("add-student/", add_student, name="add_student"),
+    path("add-teacher/", add_teacher, name="add_teacher"),
+    path("students/", view_students, name="view_students"),
+    path("logout/", logout_view, name="logout"),
+    path('student/update/<int:id>/', update_student, name='update_student'),
+    path('student/delete/<int:id>/', delete_student, name='delete_student'),
+]
+

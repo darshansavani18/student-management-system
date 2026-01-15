@@ -1,0 +1,27 @@
+{% extends 'school/base.html' %}
+
+{% block title %}
+Dashboard | SMS
+{% endblock %}
+
+{% block page_title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+<h3>Welcome, {{ request.user.username }} 👋</h3>
+
+<div class="cards">
+    <div class="card">
+        <h2>{{ total_students }}</h2>
+        <p>Total Students</p>
+    </div>
+
+    <div class="card">
+        <h2>{{ total_teachers }}</h2>
+        <p>Total Teachers</p>
+    </div>
+</div>
+
+{% endblock %}

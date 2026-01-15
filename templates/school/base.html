@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}SMS{% endblock %}</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'school/css/main.css' %}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>SMS PANEL</h2>
+        <a href="{% url 'dashboard' %}">📊 Dashboard</a>
+        <a href="{% url 'add_student' %}">➕ Add Student</a>
+        <a href="{% url 'view_students' %}">👨‍🎓 View Students</a>
+        <a href="{% url 'add_teacher' %}">➕ Add Teacher</a>
+        <a href="#">👨‍🏫 View Teachers</a>
+        <a href="#">📅 Attendance</a>
+        <a href="#">📄 Reports</a>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+        <!-- TOP NAVBAR -->
+        <div class="topbar">
+            <h3>{% block page_title %}Dashboard{% endblock %}</h3>
+
+            <div class="menu">
+                <button>👤 {{ request.user.username }} ▼</button>
+                <div class="dropdown">
+                    <a href="#">⚙ Settings</a>
+                    <a href="#">🔐 Change Password</a>
+                    <a href="{% url 'logout' %}">🚪 Logout</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+
+    </div>
+</div>
+
+{% block extra_js %}{% endblock %}
+</body>
+</html>
