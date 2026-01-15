@@ -33,8 +33,14 @@ A web-based student management system built with Django. This application allows
 2. **Set up a virtual environment** (optional but recommended):
    ```bash
    python -m venv env
+
+
+   
    # On Windows:
    env\Scripts\activate
+
+
+
    # On macOS/Linux:
    source env/bin/activate
    ```
