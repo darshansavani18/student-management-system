@@ -12,7 +12,7 @@
         <input type="text" name="q" placeholder="Search by username / roll / class"
                value="{{ query }}">
         <button class="btn">Search</button>
-        <a href="{% url 'add_student' %}" class="btn btn-primary" style="margin-left:auto;">Add Teacher</a>
+        <a href="{% url 'add_teacher' %}" class="btn btn-primary" style="margin-left:auto;">Add Teacher</a>
     </form>
 
     <table class="table">
@@ -33,11 +33,11 @@
             <tr>
                 <td>{{ forloop.counter }}</td>
                 <td>{{ teacher.user.username }}</td>
-                <td>{{ teacher.roll_number }}</td>
-                <td>{{ teacher.class_name }}</td>
-                <td>{{ teacher.section }}</td>
-                <td>{{ teacher.gender }}</td>
-                <td>{{ teacher.date_of_birth }}</td>
+                <td>{{ teacher.full_name }}</td>
+                <td>{{ teacher.email }}</td>
+                <td>{{ teacher.subject }}</td>
+                <td>{{ teacher.phone }}</td>
+                <td>{{ teacher.joining_date }}</td>
                 <td>
                     <div class="table-actions">
                         <a href="{% url 'update_teacher' teacher.id %}" class="btn-sm btn-edit">Edit</a>
