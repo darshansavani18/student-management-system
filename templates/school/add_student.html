@@ -39,5 +39,10 @@
         <button type="submit" class="login-btn">Save Student</button>
     </form>
 </div>
+{% if messages %}
+    {% for message in messages %}
+        <div class="error">{{ message }}</div>
+    {% endfor %}
+{% endif %}
 
 {% endblock %}

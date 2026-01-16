@@ -7,6 +7,7 @@ from django.contrib.auth import logout
 from .forms import StudentForm, TeacherForm
 from django.contrib.auth.models import User
 from django.db.models import Q
+from django.contrib import messages
 
 # Create your views here.
 def login_view(request):
@@ -71,13 +72,21 @@ def add_teacher(request):
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
 
-            user = User.objects.create_user(username=username,password=password)
+            if User.objects.filter(username=username).exists():
+                messages.error(request, "Username already exists. Please choose another one.")
+            else:
+                user = User.objects.create_user(
+                    username=username,
+                    password=password
+                )
 
-            teacher = form.save(commit=False)
-            teacher.user = user 
-            teacher.save()
+                teacher = form.save(commit=False)
+                teacher.user = user
+                teacher.save()
 
-            return redirect('dashboard')
+                messages.success(request, "Teacher added successfully.")
+                return redirect('view_teachers')  # or dashboard
+
     else:
         form = TeacherForm()
     return render(request, 'school/add_teacher.html', {'form': form})
