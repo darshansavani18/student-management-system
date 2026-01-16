@@ -92,6 +92,115 @@ a {
     color: #111827;
 }
 
+/* ===============================
+   USER BUTTON
+================================ */
+.user-btn {
+    background: none;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #111827;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ===============================
+   DROPDOWN CONTAINER
+================================ */
+.menu {
+    position: relative;
+}
+
+/* ===============================
+   DROPDOWN PANEL
+================================ */
+.user-dropdown {
+    position: absolute;
+    right: 0;
+    top: 42px;
+    width: 230px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    display: none;
+    z-index: 1000;
+}
+
+/* Show dropdown on hover */
+.menu:hover .user-dropdown {
+    display: none;
+}
+
+/* ===============================
+   DROPDOWN HEADER
+================================ */
+.dropdown-header {
+    padding: 12px 16px;
+    background-color: #f9fafb;
+}
+
+.dropdown-header strong {
+    display: block;
+    font-size: 14px;
+    color: #111827;
+}
+
+.dropdown-header .role {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+/* ===============================
+   DIVIDER
+================================ */
+.dropdown-divider {
+    height: 1px;
+    background-color: #e5e7eb;
+    margin: 6px 0;
+}
+
+/* ===============================
+   DROPDOWN LINKS
+================================ */
+.user-dropdown a {
+    display: block;
+    padding: 10px 16px;
+    font-size: 14px;
+    color: #374151;
+    transition: background-color 0.2s ease;
+}
+
+.user-dropdown a:hover {
+    background-color: #f3f4f6;
+}
+.user-dropdown.show{
+    display: block;
+}
+
+/* ===============================
+   LAST LOGIN (DISABLED STYLE)
+================================ */
+.user-dropdown a[style*="pointer-events"] {
+    cursor: default;
+}
+
+/* ===============================
+   LOGOUT LINK (IMPORTANT ACTION)
+================================ */
+.logout-link {
+    color: #dc2626;
+    font-weight: 600;
+}
+
+.logout-link:hover {
+    background-color: #fee2e2;
+}
+
+
 /* =====================================================
    USER MENU
 ===================================================== */

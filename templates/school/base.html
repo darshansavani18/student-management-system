@@ -34,10 +34,32 @@
 
             <div class="menu">
                 <button>👤 {{ request.user.username }} ▼</button>
-                <div class="dropdown">
-                    <a href="#">⚙ Settings</a>
+                    <div class="dropdown user-dropdown">
+
+                    <!-- USER INFO -->
+                    <div class="dropdown-header">
+                        <strong>{{ request.user.username }}</strong>
+                        <span class="role">Administrator</span>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <!-- ACTIONS -->
+                    <a href="#">👤 My Profile</a>
+                    <a href="#">⚙ Account Settings</a>
                     <a href="#">🔐 Change Password</a>
-                    <a href="{% url 'logout' %}">🚪 Logout</a>
+
+                    <div class="dropdown-divider"></div>
+
+                    <!-- SYSTEM -->
+                    <a href="#" style="pointer-events:none; color:#6b7280;">
+                        🕒 Last Login: {{ request.user.last_login|date:"d M Y" }}
+                    </a>
+
+                    <div class="dropdown-divider"></div>
+
+                    <!-- LOGOUT -->
+                    <a href="{% url 'logout' %}" class="logout-link">🚪 Logout</a>
                 </div>
             </div>
         </div>
@@ -51,5 +73,21 @@
 </div>
 
 {% block extra_js %}{% endblock %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("userMenuBtn");
+    const dropdown = document.getElementById("userDropdown");
+
+    btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        dropdown.classList.toggle("show");
+    });
+
+    document.addEventListener("click", function () {
+        dropdown.classList.remove("show");
+    });
+});
+</script>
+
 </body>
 </html>
