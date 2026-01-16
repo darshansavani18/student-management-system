@@ -91,7 +91,6 @@ def view_students(request):
         students = students.filter(
             Q(user__username__icontains=query) |
             Q(roll_number__icontains=query) |
-            Q(class_name__icontains=query)|
             Q(class_name__icontains=query)
         )
 
@@ -124,4 +123,21 @@ def update_student(request, id):
 
     return render(request, 'school/update_student.html', {
         'student': student
+    })
+
+def view_teachers(request): 
+    query = request.GET.get('q','').strip()
+
+    teachers = Teacher.objects.select_related('user').all()
+
+    if query:
+        teachers = Teacher.filter(
+            Q(user__username__icontains=query) |
+            Q(full_name__icontains=query) |
+            Q(email__icontains=query)
+        )
+
+    return render(request, 'school/view_teachers.html', {
+       'teachers': teachers,
+       'query': query
     })

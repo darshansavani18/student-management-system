@@ -20,24 +20,24 @@
             <tr>
                 <th>#</th>
                 <th>Username</th>
-                <th>Roll</th>
-                <th>Class</th>
-                <th>Section</th>
-                <th>Gender</th>
-                <th>DOB</th>
+                <th>Full_name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Phone</th>
+                <th>Joining Date</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            {% for student in students %}
+            {% for teacher in teachers %}
             <tr>
                 <td>{{ forloop.counter }}</td>
-                <td>{{ student.user.username }}</td>
-                <td>{{ student.roll_number }}</td>
-                <td>{{ student.class_name }}</td>
-                <td>{{ student.section }}</td>
-                <td>{{ student.gender }}</td>
-                <td>{{ student.date_of_birth }}</td>
+                <td>{{ teacher.user.username }}</td>
+                <td>{{ teacher.roll_number }}</td>
+                <td>{{ teacher.class_name }}</td>
+                <td>{{ teacher.section }}</td>
+                <td>{{ teacher.gender }}</td>
+                <td>{{ teacher.date_of_birth }}</td>
                 <td>
                     <div class="table-actions">
                         <a href="{% url 'update_student' student.id %}" class="btn-sm btn-edit">Edit</a>
