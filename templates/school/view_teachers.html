@@ -40,8 +40,8 @@
                 <td>{{ teacher.date_of_birth }}</td>
                 <td>
                     <div class="table-actions">
-                        <a href="{% url 'update_student' student.id %}" class="btn-sm btn-edit">Edit</a>
-                        <a href="{% url 'delete_student' student.id %}"
+                        <a href="{% url 'update_teacher' teacher.id %}" class="btn-sm btn-edit">Edit</a>
+                        <a href="{% url 'delete_teacher' teacher.id %}"
                            class="btn-sm btn-delete"
                            onclick="return confirm('Are you sure?')">Delete</a>
                     </div>

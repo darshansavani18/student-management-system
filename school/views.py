@@ -141,3 +141,28 @@ def view_teachers(request):
        'teachers': teachers,
        'query': query
     })
+
+def update_teacher(request, id):
+    teacher = Teacher.objects.get(id=id)
+
+    if request.method == "POST":
+        teacher.full_name = request.POST.get('full_name')
+        teacher.email = request.POST.get('email')
+        teacher.subject = request.POST.get('subject')
+        teacher.phone = request.POST.get('phone')
+        teacher.joining_date = request.POST.get('joining_date')
+        teacher.save()
+
+        return redirect('view_teachers')
+
+    return render(request, 'school/update_teacher.html', {
+        'teacher': teacher
+    })
+
+def delete_teacher(request, id):
+    teacher= Teacher.objects.get(id=id)
+
+    # delete related user also
+    teacher.user.delete()
+
+    return redirect('view_teachers')
