@@ -140,7 +140,7 @@ def view_teachers(request):
     teachers = Teacher.objects.select_related('user').all()
 
     if query:
-        teachers = Teacher.filter(
+        teachers = teachers.filter(
             Q(user__username__icontains=query) |
             Q(full_name__icontains=query) |
             Q(email__icontains=query)
